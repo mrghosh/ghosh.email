@@ -1,0 +1,419 @@
+*{
+	box-sizing: border-box;
+}
+html, body{
+	margin: 0px;
+	padding: 0px;
+	font-family:Helvetica,Arial,sans-serif;
+	scroll-behavior: smooth;
+}
+body::after{
+	position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+	content:url(images/footer-cropped.jpg)
+}
+.mediaqueryHelper{
+	font-size: 3px;
+	display: none;
+}
+/*----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------top (logo, navbar, typing email and placeholders)-----------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+.topWrapper{
+	position: fixed;
+	width: 100%;
+	height: 32rem;
+	transition: 0.5s;
+	z-index: 100;
+	top: 0;
+	left:0;
+}
+.topWrapperPlaceHolder{
+	position: relative;
+	width: 100%;
+	height: 32rem;
+	top: 0;
+	left:0;
+	color: rgba(0, 0, 0, 0.1);
+	visibility: hidden;
+}
+.logoNavbarWrapper{
+	position: fixed;
+	width: 100%;
+	height: 4rem;
+	background: #f1f1f1;
+	top: 0;
+	left:0;
+}
+.logo{
+	position: absolute;
+	margin: auto 0px auto 5%;
+	left:0;
+	width: 5%;
+	top: 50%;
+    transform: translateY(-50%);
+	background-image: url("images/logo.png");
+	height: 2.5rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain; 
+	vertical-align: middle;
+}
+/*-----------------------------------------------navbar-----------------------------------------------*/
+.navbar{
+	position: absolute;
+	margin: auto 5% auto 0px;
+	color: grey;
+	right:0;
+	top: 50%;
+    transform: translateY(-50%);
+	font-size: 1.2rem;
+	/*width:50%;    This is required if we add RIGHT margin tot he menus. Then the parent div fails to adapt it's width according to children's total width. so the menu items break to next line*/ /*=====Fixed the problem TEMPORARILY by adding left padding/margin=====*/
+	text-align: right;
+}
+.navbar ul{
+	margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.navbar ul li{
+	margin: 0px;
+    display: inline;
+	padding-left: 0.25em;
+	border-left: 0.12em solid orange;
+}
+.navbar ul li:not(:last-child) {
+    /*margin-right:5%;    Requires to set parent div width if used*/
+}
+.navbar ul li:not(:first-child) {
+    margin-left:2em;
+}
+a {
+    text-decoration: none;
+	color: grey;
+}
+a:hover {
+    color: black;
+}
+/*-----------------------------------------------typing email-----------------------------------------------*/
+.typingEmail{
+	position: absolute;
+	margin-left:15%;
+	top: 50%;
+    transform: translateY(-50%);
+	font-size: 4rem;
+	transition: 0.5s;
+}
+.typingEmailPlaceHolder{
+	position: relative;
+	margin-left:15%;
+	top: 50%;
+    transform: translateY(-50%);
+	font-size: 4rem;
+	transition: 0.5s;
+}
+.cursorShow {
+	border-right: 0.04em solid orange
+}
+.cursorBlink {
+	animation: 
+		blink-caret 1s step-end infinite;
+}
+@keyframes blink-caret {
+  from, to { border-color: orange }
+  50% { border-color: transparent }
+}
+.cursorShowPlaceHolder {
+	border-right: 0.04em solid rgba(0, 0, 0, 0.1);
+}
+.cursorBlinkPlaceHolder {
+	animation: 
+		blink-caret-PlaceHolder 1s step-end infinite;
+}
+@keyframes blink-caret-PlaceHolder {
+	from, to { border-color: #e5e5e5 }
+	50% { border-color: transparent }
+}
+/*-----------------------------------------------main heading-----------------------------------------------*/
+.headingContainer-topWrapperPlaceHolder{
+	position: absolute;
+	bottom: 0px;
+	font-size: 2.4rem;
+	visibility: visible;
+	color: white;
+	background-color: #FFD65C;
+	width: 100%;
+	text-align:center;
+}
+.heading-topWrapperPlaceHolder{
+	background-color: #FFCC33;
+	display:inline-block;
+	transform: skewX(-20deg);
+	padding-top:1rem;
+	padding-bottom:1rem;
+	margin-left:12%;
+	margin-right:12%;
+	width:76%;
+}
+.heading-topWrapperPlaceHolder::after{
+	transform: skewX(20deg);
+	content:"Personalized name@ghosh.email Address";
+	display:inline-block;
+}
+.mobOnly{
+	display: none;
+}
+/*-----------------------------------------------content-----------------------------------------------*/
+.contentWrapper{
+	position: relative;
+	font-size: 1.2rem;
+	line-height: 1.6rem;
+	margin: 3rem 15% 3rem 15%;
+}
+.highlight{
+	background-color: #fff2ac;
+    background-image: linear-gradient(to right, #d6c1ea 0%, #eae0f4 100%);
+	border-radius: 5px;
+}
+/*-----------------------------------------------feature-----------------------------------------------*/
+.featureWrapper{
+	width:100%;
+	padding: 2rem 2rem 2rem 2rem;
+	background-color:#d6f5ff;
+}
+.clearfix::after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+.featureColumn{
+	float: left;
+	width: 16.66%;
+	padding: 0 1rem 0 1rem;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight:thin;
+}
+.featureColumn img{
+	max-width: 100%;
+	height: auto;
+	padding-bottom:2rem;
+	filter: brightness(0) saturate(100%) invert(45%) sepia(99%) saturate(1905%) hue-rotate(162deg) brightness(95%) contrast(101%);
+	/*https://codepen.io/sosuke/pen/Pjoqqp*/
+}
+/*-----------------------------------------------pricing-----------------------------------------------*/
+.columns {
+  float: left;
+  width: 33.3%;
+  padding: 0.5rem;
+}
+.price {
+  list-style-type: none;
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.price:hover {
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+.price .header {
+  background-color: #8BC34A;
+  color: white;
+  font-size: 1.5rem;
+}
+.price li {
+  border-bottom: 1px solid #eee;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.price .grey {
+  background-color: #eee;
+  font-size: 1.2rem;
+}
+.strikethrough {
+  position: relative;
+}
+.strikethrough:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid;
+  border-color: inherit;
+
+  -webkit-transform:rotate(-5deg);
+  -moz-transform:rotate(-5deg);
+  -ms-transform:rotate(-5deg);
+  -o-transform:rotate(-5deg);
+  transform:rotate(-5deg);
+}
+.button {
+  background-color: #FF4F5A;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius:1.5rem;
+}
+.columns ul li:last-child{
+		padding: 1.5rem;
+}
+span.anchor {
+	/*NOT USED HERE. https://stackoverflow.com/questions/10732690/*/
+    display: block;
+    position: relative;
+	text-align: center;
+	font-size:2rem;
+	height: 4rem;
+	padding: 1rem;
+	top: -1rem;
+}
+.priceTerms{
+	font-size:1rem;
+	line-height:1.4rem;
+}
+/*-----------------------------------------------footer-----------------------------------------------*/
+/*
+.footersvg {
+  background: url('images/footer.jpg') no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  display: block;
+}
+.footer{
+	position: relative;
+}
+*/
+.footersvg {
+  background-color: transparent;
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+.footer{
+	position: relative;
+}
+.footerImageSvgWrapper{
+	position: relative;
+}
+.footerText{
+	position: relative;
+	background-color: #9EAFFD;
+	width: 100%;
+	text-align: center;
+	font-size: 1rem;
+	padding-bottom: 1rem;
+	margin: 0;
+}
+.footerText a{
+	color: black;
+}
+.footerText a:hover {
+	text-decoration: underline;
+}
+.footerImg{
+	max-height:75vh;
+	width: 100%;
+	height: auto;
+}
+
+
+
+
+/*
+================== CLASS TREE ===================
+
+topWrapper
+	logoNavbarWrapper
+		logo
+		navbar
+	logoNavbarWrapper
+	typingEmail
+
+topWrapperPlaceHolder
+	typingEmailPlaceHolder
+		namePlaceHolder
+	headingContainer-topWrapperPlaceHolder
+		heading-topWrapperPlaceHolder
+mobOnly headingContainer-topWrapperPlaceHolder
+
+contentWrapper
+
+featureWrapper
+	featureColumn
+	featureColumn
+	featureColumn
+	featureColumn
+	featureColumn
+	featureColumn
+
+contentWrapper
+	columns
+		price
+	columns
+		price
+	columns
+		price
+	
+contentWrapper mobOnly-bulletPushLeft PriceTerms
+
+footer
+	footerImageSvgWrapper
+		footerImg
+		footerSvg
+	footerText
+
+================== FONT SIZE CLASSES ===================
+
+navbar
+typingEmail
+typingEmailPlaceHolder
+headingContainer-topWrapperPlaceHolder
+contentWrapper
+featureColumn
+
+.price .header
+.price li
+.price .grey 
+.button
+span.anchor
+
+priceTerms
+footerText
+
+--------------------- rem unit
+navbar: 1.2
+main heading: 2.4
+content: 1.2 font and 1.6 line height
+feature: 1.2
+pricing anchor heading: 2
+price header: 1.5
+price: 1.2
+price li: 1.1
+button: 1.2
+price terms ul: 1
+footer: 1
+
+================== PADDING AND MARGIN ===================
+
+contentWrapper
+	margin: 3rem 15% 3rem 15%;
+heading-topWrapperPlaceHolder
+	padding-top:1rem; padding-bottom:1rem; margin-left:12%; margin-right:12%;
+featureWrapper
+	padding: 2rem 2rem 2rem 2rem;
+span.anchor
+	padding: 1rem;
+footerText
+	padding-bottom: 1rem;
+
+
+*/
+

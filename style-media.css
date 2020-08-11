@@ -1,0 +1,142 @@
+@media only screen and (max-width: 1000px) and (min-width: 801px) {
+	/*TO FIX: in some cases when the name is long, the typingemail is creating horizontal scroll bar*/
+	.mediaqueryHelper{
+		font-size: 2px;
+	}
+	.topWrapper{
+		position: relative;
+	}
+	.topWrapperPlaceHolder{
+		height: 0;
+	}
+	.logoNavbarWrapper{
+		z-index:200;
+	}
+	.navbar{
+		font-size:1rem;
+	}
+	.typingEmail{
+		font-size: 2.5rem;
+	}
+	.headingContainer-topWrapperPlaceHolder{
+		font-size:2rem;
+	}
+	.featureColumn{
+		font-size:1rem;
+	}
+	.price .header{
+		font-size:1.2rem;
+	}
+	.price li{
+		font-size:1rem;
+	}
+	.price .grey{
+		font-size:1rem;
+	}
+	.button{
+		font-size:1rem;
+		padding: 0.8rem 1rem;
+	}
+	span.anchor{
+		font-size:1.5rem;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.mediaqueryHelper{
+		font-size: 1px;
+	}
+	.logoNavbarWrapper, .topWrapper{
+		position: relative;
+		height: auto;
+		text-align: center;
+	}
+	.topWrapperPlaceHolder, .typingEmail, .typingEmailPlaceHolder{
+		display: none;
+	}
+	.logo{
+		position: relative;
+		transform:none;
+		width: 15%;
+		display: inline-block;
+		margin: 0;
+		margin: 1rem;
+	}
+	.navbar{
+		position: relative;
+		font-size: 1.2rem;
+		width: 100%;
+		transform: none;
+	}
+	.navbar ul li{
+		display: block;
+		width: 100%;
+		margin: 0px;
+		text-align:center;
+		padding-left: none;
+		border-left: none;
+		padding: 0.5rem 0 0.5rem 0;
+	}
+	.navbar ul li:not(:first-child) {
+		margin-left: 0;
+	}
+	.navbar ul li:nth-child(odd){
+		background-color: white;
+	}
+	.mobOnly{
+		display: inline-block;
+		position: relative;
+	}
+	.headingContainer-topWrapperPlaceHolder{
+		font-size: 1.5rem;
+	}
+	.contentWrapper{
+		margin: 3rem 5% 3rem 5%;
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+	.columns {
+		width: 100%;
+	}
+	.columns:not(:last-child){
+		margin-bottom:1rem;
+	}
+	.columns ul li:last-child{
+		padding: 1.5rem;
+	}
+	.featureColumn{
+		width: 100%;
+		font-size: 1.1rem;
+		padding-bottom: 2rem;
+	}
+	/*.featureColumn:nth-child(even){
+		text-align: right;
+	}*/
+	.featureColumn img{
+		padding-bottom: 1rem;
+	}
+	span.anchor {
+		font-size:1.5rem;
+		height: auto;
+		padding: 0;
+	}
+	.price .header{
+		font-size:1.5rem;
+	}
+	.price li{
+		font-size:1rem;
+	}
+	.price .grey{
+		font-size:1.2rem;
+	}
+	.button{
+		font-size:1.2rem;
+	}
+	.mobOnly-bulletPushLeft{
+		position: relative;
+		left: -1rem;
+	}
+	.footerText{
+		font-size: 0.6rem;
+	}
+}
