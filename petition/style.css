@@ -1,0 +1,21 @@
+.is-navbar-box{
+	padding: 1rem 5rem;
+}
+.main{
+	padding: 3rem 5rem;
+}
+#accordion{
+	//display: none;
+}
+footer{
+	text-align:center;
+}
+
+@media only screen and (max-width: 600px) {
+	.is-navbar-box{
+		padding: 1rem 2rem;
+	}
+	.main{
+		padding: 3rem 2rem;
+	}
+}

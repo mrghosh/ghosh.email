@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+<title>Petition against ABSPL</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="kube.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<header class="header">
+	<div data-kube="sticky" class="is-navbar-box is-shadow-1">
+		<div class="is-navbar-container">
+			<div class="is-brand">
+				<!--<img src="wifi-1.gif" height="42" width="42">&nbsp&nbsp -->
+				<b class="is-logo"><h2>Petition Against Alliance Broadband</h2></b>
+			</div>
+		</div>
+	</div>
+	</header>	
+	<main class="main">
+		<fieldset>
+			<legend>Basic Information</legend>
+			<form method="post" id="basicinfo" action="">
+				<div class="form-item">
+					<label>Username: <span class="is-req">*</span> </label>
+					<input type="text" name="username" maxlength="20" autocomplete="off" class="is-25">
+					<div class="is-desc">Please enter broadband username</div>
+				</div>
+				<div class="form-item">
+					<label>Number of days your connectivity was interrupted after Amphan: <span class="is-req">*</span> </label>
+					<input type="number" name="days1" value="" min="0" max="90" autocomplete="off" class="is-10">
+					<div class="is-desc">Please enter only numerical vlaue (eg: 7, 10, 20, etc.)</div>
+				</div>
+				<div class="form-item">
+					<label>Number of days validity extension received: <span class="is-req">*</span> </label>
+					<input type="number" name="days2" value="0" min="0" max="30" autocomplete="off" class="is-10">
+					<div class="is-desc"> If no extension was received, please enter 0. Please enter only numerical vlaue (eg: 7, 10, 20, etc.)</div>
+				</div>
+				<div class="form-item">
+					<label>Location PIN code: </label>
+					<input type="number" name="pincode" min="700000" max="749999" autocomplete="off" class="is-20">
+					<div class="is-desc"> Optional</div>
+				</div>
+				<div class="form-item is-buttons">
+					<button class="button">Generate Email</button>
+					<button class="button is-tertiary" onclick="document.getElementById('basicinfo').reset();">Reset/Start Over</button>
+				</div>
+			</form>
+		</fieldset>	
+	
+		<div id="accordion">
+			<h3>Send one-click email</h3>
+			<div>
+				<p>
+				...
+				</p>
+			</div>
+			<h3>Manually copy email content</h3>
+			<div>
+				<p>
+				...
+				</p>
+			</div>
+			<h3>Send tweet</h3>
+			<div>
+				<i class="fab fa-twitter fa-2x"></i> Click to send Tweet
+			</div>
+			<h3>How to lodge a grievance on pgportal - video</h3>
+			<div>
+				<p>
+				...
+				</p>
+			</div>
+		</div>
+	</main>
+	<footer class="footer">
+		<div>&copy Sourav Ghosh</div>
+	</footer>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="kube.min.js"></script>
+	<script>
+		$( "#accordion" ).accordion({
+			collapsible: true,
+			heightStyle: "content",
+			active: false
+		});
+	</script>
+	<noscript>
+    <div style="position: fixed; top: 0px; left: 0px; z-index: 10000; 
+                height: 100%; width: 100%; background-color: #FFFFFF">
+        <p style="margin-left: 10px"> For full functionality of this site it is necessary to enable JavaScript. Here are the <a href="https://www.enable-javascript.com/">instructions how to enable JavaScript in your web browser</a>.</p>
+    </div>
+</noscript>
+</body>
+</html>
