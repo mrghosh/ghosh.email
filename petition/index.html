@@ -23,78 +23,129 @@
 	<main class="main">
 		<fieldset>
 			<legend>Basic Information</legend>
-			<form method="post" id="basicinfo" action="">
+			<form method="post" id="basicinfo" action="" onsubmit="return generateEmail(this.username.value.trim(),this.days1.value.trim(),this.days2.value.trim(),this.fullname.value.trim(),this.pincode.value.trim())">
 				<div class="form-item">
 					<label>Username: <span class="is-req">*</span> </label>
-					<input type="text" name="username" maxlength="20" autocomplete="off" class="is-25">
-					<div class="is-desc">Please enter broadband username</div>
+					<input type="text" name="username" minlength="5" maxlength="20" autocomplete="off" required class="is-25">
+					<div class="is-desc">Please enter broadband username. It is an alphanumeric string that you use during login (eg: alice_bob).</div>
+					<div class="is-desc">If you don't know your username, you can find it from your previous invoices. Call the ISP helpline for more information.</div>
 				</div>
 				<div class="form-item">
 					<label>Number of days your connectivity was interrupted after Amphan: <span class="is-req">*</span> </label>
-					<input type="number" name="days1" value="" min="0" max="90" autocomplete="off" class="is-10">
-					<div class="is-desc">Please enter only numerical vlaue (eg: 7, 10, 20, etc.)</div>
+					<input type="number" name="days1" value="" min="4" max="90" autocomplete="off" required class="is-10">
+					<div class="is-desc">Please enter only numerical vlaue (eg: 7, 10, etc.). The value should be grater than 4 or equal to 4. Because as per TRAI regulation, ISP should give rebate if the fault is not restored within 3 days.</div>
 				</div>
 				<div class="form-item">
 					<label>Number of days validity extension received: <span class="is-req">*</span> </label>
-					<input type="number" name="days2" value="0" min="0" max="30" autocomplete="off" class="is-10">
-					<div class="is-desc"> If no extension was received, please enter 0. Please enter only numerical vlaue (eg: 7, 10, 20, etc.)</div>
+					<input type="number" name="days2" value="0" min="0" max="30" autocomplete="off" required class="is-10">
+					<div class="is-desc"> If no extension was received, please enter 0. Please enter only numerical vlaue (eg: 0, 7, etc.).</div>
+				</div>
+				<div class="form-item">
+					<label>Full Name: </label>
+					<input type="text" name="fullname" maxlength="40" autocomplete="off" class="is-50">
+					<div class="is-desc">Optional. Required for email signature.</div>
 				</div>
 				<div class="form-item">
 					<label>Location PIN code: </label>
 					<input type="number" name="pincode" min="700000" max="749999" autocomplete="off" class="is-20">
-					<div class="is-desc"> Optional</div>
+					<div class="is-desc"> Optional.</div>
 				</div>
-				<div class="form-item is-buttons">
-					<button class="button">Generate Email</button>
-					<button class="button is-tertiary" onclick="document.getElementById('basicinfo').reset();">Reset/Start Over</button>
+				<div class="is-row">
+					<div class="form-item is-col">
+						<button id="generateEmailButton" class="button is-100">Generate Email</button>
+					</div>
+					<div class="form-item is-col">
+						<button class="button is-secondary is-50" onclick="startOver();">Start Over</button>
+					</div>
 				</div>
 			</form>
 		</fieldset>	
-	
-		<div id="accordion">
-			<h3>Send one-click email</h3>
-			<div>
-				<p>
-				...
-				</p>
+		
+		<fieldset>
+			<legend>Generated Email</legend>
+			<p id="beforeGenerate">Please enter the required information in the form above to generate the email content.</p>
+			<p id="afterGenerate">The email has been generated. Click 'Start Over' above if you need to try again.</p>
+			<p id="afterGenerateWarning""></p>
+			<div id="accordion1">
+				<h3>Send one-click email</h3>
+				<div>
+					<i class="fas fa-envelope-open-text fa-2x"></i> Click to open your email client
+				</div>
+				<h3>Manually copy-paste email texts</h3>
+				<div>
+					<div class="form-item">
+						<button class="button is-small is-25 no-radius-blue" onclick="copyFunction('emailTo','toCopy')">To: <span id="toCopy">(click to copy) </span></button>
+						<textarea rows="1" id="emailTo" class="blue-textarea-border" wrap="off" spellcheck="false"></textarea>
+					</div>
+					<div class="form-item">
+						<button class="button is-small is-25 no-radius-blue" onclick="copyFunction('emailSubject','subjectCopy')">Subject: <span id="subjectCopy">(click to copy)</span></button>
+						<textarea rows="1" id="emailSubject" class="blue-textarea-border" wrap="off" spellcheck="false"></textarea>
+					</div>
+					<div class="form-item">
+						<button class="button is-small is-25 no-radius-blue" onclick="copyFunction('emailBody','bodyCopy')">Body: <span id="bodyCopy">(click to copy)</span></button>
+						<textarea rows="7" id="emailBody" class="blue-textarea-border" spellcheck="false"></textarea>
+						
+					</div>
+				</div>
+				<h3>Send tweet</h3>
+				<div>
+					<i class="fab fa-twitter fa-2x"></i> Click to send Tweet
+				</div>
 			</div>
-			<h3>Manually copy email content</h3>
-			<div>
-				<p>
-				...
-				</p>
-			</div>
-			<h3>Send tweet</h3>
-			<div>
-				<i class="fab fa-twitter fa-2x"></i> Click to send Tweet
-			</div>
+		</fieldset>
+		<br/>
+		<div id="accordion2">
 			<h3>How to lodge a grievance on pgportal - video</h3>
 			<div>
+				<!--<p>
+				<div class='embed-container'><iframe src='https://www.youtube.com/embed/A8_MQlpMxgg' frameborder='0' allowfullscreen></iframe></div>
+				</p>-->
+				<p>The grievances registered on <a href="https://pgportal.gov.in/" target="_blank">PGPORTAL</a> are forwarded to the concerned Ministries/Departments/State Governments/UTs. You can register your grievance there, and they will forward it to the concerned department under the Department of Telecommunication. You need to register an account first on the website before posting a grievance.</p>
+				<figure>
+					<div class="is-video-container">
+						<iframe src='https://www.youtube.com/embed/A8_MQlpMxgg' frameborder='0' allowfullscreen></iframe>
+					</div>
+				</figure>
+			</div>
+			<h3>How to lodge a grievance on Directorate of Consumer Affairs & Fair Business Practices, WB</h3>
+			<div>
+				You can also post your grievance on <a href="http://wbconsumers.gov.in/HtmlPages/index.aspx" target="_blank">Consumer Affairs Department's Website</a> for a mediation. Here also you need to register an account first. Read <a href="http://wbconsumers.gov.in/document/How_to_lodge_complain.pdf" target="_blank">this PDF</a> to understand how to lodge a complaint.
+			</div>
+			<h3>Alliance Broadband Appellate Authority Details</h3>
+			<div>
+				As of 06/09/2020, ABSPL website has no information about the appellate authority, advisory committee. There is also no consumer charter, all of these are violations of TRAI regulation. However, I did an RTI and received the appellate authority details. The full RTI response from the TRAI can be found <a href="https://drive.google.com/file/d/1B_VZusFiZVbY3YLyubLQl4ryCDrYsoYX/view?usp=sharing" target="_blank">here</a>.
+				<br/><br/>
+				Kaushik Ghosh: kaushik@alliancebroadband.co.in<br/>
+				Kapil Sonowal: kapil@alliancebroadband.co.in<br/>
+				Arunabha Bnaerjee: arunabha@alliancebroadband.co.in<br/>
+				Abhijit Modak: abhijitm@alliancebroadband.co.in
+			</div>
+			<h3>Contact</h3>
+			<div>
 				<p>
-				...
+				Please feel free to email me if you have any questions, suggestions, or need any further information:<br/><span id="email_user"></span>@<span id="email_domain"></span><br/>
+				<form><div class="is-desc">If this has helped you, please consider donating some small amount, because it will encourage me to build similar things in future. My UPI ID is: mrghosh@upi</div></form>
 				</p>
 			</div>
 		</div>
 	</main>
 	<footer class="footer">
-		<div>&copy Sourav Ghosh</div>
+		<div></div>
 	</footer>
+	
+	<div id="dialog" title="">
+		<p id="dialogText"></p>
+	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<script src="kube.min.js"></script>
-	<script>
-		$( "#accordion" ).accordion({
-			collapsible: true,
-			heightStyle: "content",
-			active: false
-		});
-	</script>
+	<!-- <script src="kube.min.js"></script> -->
+	<script src="script.js"></script>
 	<noscript>
     <div style="position: fixed; top: 0px; left: 0px; z-index: 10000; 
                 height: 100%; width: 100%; background-color: #FFFFFF">
         <p style="margin-left: 10px"> For full functionality of this site it is necessary to enable JavaScript. Here are the <a href="https://www.enable-javascript.com/">instructions how to enable JavaScript in your web browser</a>.</p>
     </div>
-</noscript>
+	</noscript>
 </body>
 </html>
