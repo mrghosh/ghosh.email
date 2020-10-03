@@ -87,7 +87,7 @@ function generateEmail(username,days1,days2,fullname,pincode){
 		};
 		var start_time = new Date().getTime();
 		//xhttp.open("GET", "http://localhost/_alliancepetition/validate.php?u=" + username, true);
-		xhttp.open("GET", "http://altest.indiatechnical.in/validate.php?u=" + username, true);
+		xhttp.open("GET", "https://indiatechnical.in/altest/validate.php?u=" + username, true);
 		xhttp.send();
 	}
 	
