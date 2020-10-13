@@ -38,13 +38,13 @@
 					<input type="number" name="days1" value="" autocomplete="off" required class="is-10">
 					<!--maxlength is ignored on input type="number" by design.-->
 					<!-- removed min and max attribute because of the same reason. deafult error messages are buggy on mobile chrome. if we use min, max, the form is not submitted until the error is rectified, and the JS error is also not displayed-->
-					<div class="is-desc">Please enter only numerical vlaue (eg: 7, 10, etc.). The value should be grater than 4 or equal to 4. Because as per TRAI regulation, ISP should give rebate if the fault is not restored within 3 days.</div>
+					<div class="is-desc">Please enter only numerical value (eg: 7, 10, etc.). The value should be grater than 4 or equal to 4. Because as per TRAI regulation, ISP should give rebate if the fault is not restored within 3 days.</div>
 				</div>
 				<div class="form-item">
 					<label>Number of days validity extension received: <span class="is-req">*</span> <span class="is-error" id="days2Error"></span></label>
 					<!--<input type="number" name="days2" value="0" min="0" max="30" autocomplete="off" required class="is-10">-->
 					<input type="number" name="days2" value="0" autocomplete="off" required class="is-10">
-					<div class="is-desc"> If no extension was received, please enter 0. Please enter only numerical vlaue (eg: 0, 7, etc.).</div>
+					<div class="is-desc"> If no extension was received, please enter 0. Please enter only numerical value (eg: 0, 7, etc.).</div>
 				</div>
 				<div class="form-item">
 					<label>Full Name: <span class="is-error" id="nameError"></span></label>
@@ -72,7 +72,7 @@
 			<legend>Generated Email</legend>
 			<p id="beforeGenerate">Please enter the required information in the form above to generate the email content.</p>
 			<p id="afterGenerate">
-				The email has been generated. Click 'Start Over' above if you need to try again.<br/><br/>If you only send the email, you can't track the status of your complaint and it may be ignored. So, we always recommend opening a pgportal grievance. Click "How to lodge a grievance on pgportal" tab below to see a 1.5 min video to understand the procedure. You can copy-paste email body from "Manually copy-paste email texts" tab to quickly create your docket on pgportal.<br/><br/>However, if you are in a hurry, click "Send one-click email" or "Manually copy-paste email texts" tab to send the precomposed email using your configured email client. We recommed to read the email body before sending and modify it with additional information (eg: if you have any complaint number, your pgportal case number, contact, etc.).
+				The email has been generated. Click 'Start Over' above if you need to try again.<br/><br/>If you only send the email, you can't track the status of your complaint and it may be ignored. So, we always recommend opening a pgportal grievance. Click "How to lodge a grievance on pgportal" tab below to see a 1.5 min video to understand the procedure. You can copy-paste email body from "Manually copy-paste email texts" tab to quickly create your docket on pgportal.<br/><br/>However, if you are in a hurry, click "Send one-click email" or "Manually copy-paste email texts" tab to send the generated email using your configured email client. We recommend to read the email body before sending and modify it with additional information (eg: if you have any complaint number, your pgportal case number, contact, etc.).
 			</p>
 			<p id="afterGenerateWarning""></p>
 			<div id="accordion1">
