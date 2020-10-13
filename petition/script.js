@@ -31,12 +31,12 @@ function generateEmail(username,days1,days2,fullname,pincode){
 		return false;
 	}
 	if(days1 < 4 || days1 > 90) {
-		document.getElementById("days1Error").innerHTML="Value should be more than 3 and less than 90 days";
+		document.getElementById("days1Error").innerHTML="Value should be more than 3 and less than 90 days.";
 		document.forms.basicinfo.days1.focus();
 		return false;
 	}
 	if(days2 < 0 || days2 > 30) {
-		document.getElementById("days2Error").innerHTML="Value should be between 0 days and 30 days";
+		document.getElementById("days2Error").innerHTML="Value should be between 0 days and 30 days.";
 		document.forms.basicinfo.days2.focus();
 		return false;
 	}
@@ -57,7 +57,7 @@ ${fullname}`;
 		body_location="";
 	}else{
 		if(pincode < 700001 || pincode > 749999) {
-			document.getElementById("pinError").innerHTML="Please enter a valid West Bengal pincode";
+			document.getElementById("pinError").innerHTML="Please enter a valid West Bengal pincode.";
 			document.forms.basicinfo.pincode.focus();
 			return false;
 		}
@@ -83,13 +83,13 @@ ${fullname}`;
 		if(username.toString().length >= 8){
 			clientID=true;
 			body_username=`I am a prepaid customer of Alliance Broadband Services Pvt Ltd (ABSPL), and my client ID is ${username}.`;
-			document.getElementById("afterGenerateWarning").innerHTML="WARNING: You may have entered Client ID. Username is different from client ID. However, we have generated the email with you client ID. You should recheck your ID for accuracy.";
+			document.getElementById("afterGenerateWarning").innerHTML="WARNING: You may have entered your Client ID. Username is different from the client ID. However, we have generated the email with your client ID. You should recheck your ID for accuracy.";
 			//$("#dialog").dialog("option","title","Warning!").dialog("open");
 			document.getElementById("afterGenerateWarning").style.display="block";
 			tweet=`I'm a prepaid customer of Alliance Broadband(#ABSPL), clientID: ${username}. `;
 			tweet+=tweetRest;
 		} else{
-			document.getElementById("dialogText").innerHTML="You may have tried to use the Client ID. Username is different from client ID. Please ether a valid Alliance Broadband username. Please retry.";
+			document.getElementById("dialogText").innerHTML="You may have tried to use your Client ID. Username is different from the client ID. Please ether a valid Alliance Broadband username. Please retry.";
 			$("#dialog").dialog("option","title","Error!").dialog("open");
 			return false;
 		}
@@ -101,7 +101,7 @@ ${fullname}`;
 	document.getElementById("emailTo").value=to;
 
 	body_salutation="Dear Sir/Madam,";
-	body_rest=`IMD and NDMA issued an alert about seven days before the severe Cyclone. ABSPL did not have a proper plan to restore connectivity after the storm. It should also be noted that the ISP should compensate for the days which their business partners, local cable operators, took to repair the last mile fibers. Moreover, the official website of ABSPL does not have any appellate authority details (as of 10.10.2020) and consumer charter. This is a violation of Telecom Consumers Complaint Redressal Regulations, 2012. I understand that the Cyclone has done a lot of damages, but from the perspective of the customers, we did already pay for the prepaid service, and we should get the rebate as per regulation. Apart from myself, there are many other users to whom the ISP has not given any rebates.
+	body_rest=`IMD and NDMA issued an alert about seven days before the severe Cyclone. ABSPL did not have a proper plan to restore connectivity after the storm. It should also be noted that the ISP should compensate for the days which their business partners, local cable operators, took to repair the last mile fibers. Moreover, the official website of ABSPL does not have any appellate authority details (as of 14.10.2020) and consumer charter. This is a violation of Telecom Consumers Complaint Redressal Regulations, 2012. I understand that the Cyclone has done a lot of damages, but from the perspective of the customers, we did already pay for the prepaid service, and we should get the rebate as per regulation. Apart from myself, there are many other users to whom the ISP has not given any rebates.
 	
 The internet plays a vital role in the current pandemic situation. In This scenario, I request the statutory authority/concerned department to take immediate action against Alliance Broadband Services Pvt. Ltd. to protect the users' consumer rights and ensure the quality of service. Also, please direct the ISP to give me the rebate as per the regulation.
 
@@ -131,7 +131,7 @@ Qos Regulation PDF: https://www.trai.gov.in/sites/default/files/2012110903212437
 						$("#dialog").dialog("option","title","Warning!").dialog("open");
 					}else{
 						//alert("WARNING: The username is not a valid alliance username. The email content has been generated but please recheck the username. Contact us if you think this is an error.");
-						document.getElementById("afterGenerateWarning").innerHTML="WARNING: The username is not a valid alliance username. The email content has been generated but please recheck the username. Contact us if you think this is an error.";
+						document.getElementById("afterGenerateWarning").innerHTML="WARNING: The username is not a valid Alliance Broadband username. The email content has been generated, but please recheck the username. Contact us if you think this is an error.";
 						document.getElementById("afterGenerateWarning").style.display="block";
 					}
 				}
@@ -177,7 +177,7 @@ function copyShareMessage(e){
     var dummy = document.createElement("textarea");
     //dummy.style.display = 'none'
     document.body.appendChild(dummy);
-    dummy.value = "Did you get Internet package validity extension for Amphan? If not, maybe lodge a grievance on pgportal against Alliance Broadband. It will only take few minutes. Please visit https://ghosh.email/petition";
+    dummy.value = "Did you get your broadband package validity extension for Amphan? If not, maybe lodge a grievance on PG portal against Alliance Broadband. It will only take a few minutes. Please visit https://ghosh.email/petition";
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
