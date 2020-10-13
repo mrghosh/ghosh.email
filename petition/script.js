@@ -97,7 +97,7 @@ ${fullname}`;
 	
 	subject=`[${username}] Complaint against Alliance Broadband Services (P) Ltd`;
 	document.getElementById("emailSubject").value=subject;
-	to="ddgtermkol-dot@nic.in,ddgvtmkol-dot@nic.in,ddgadmn.wb-dot@gov.in,diradmn.wb-dgt-dot@gov.in,dir2.cmskol-dot@gov.in,ddga.wb-dgt-dot@gov.in,jtot.wb-dgt-dot@gov.in,daca@trai.gov.in,adcafbp.cad.kolc-wb@nic.in";
+	to="ddgtermkol-dot@nic.in,ddgvtmkol-dot@nic.in,ddgadmn.wb-dot@gov.in,diradmn.wb-dgt-dot@gov.in,dir2.cmskol-dot@gov.in,ddga.wb-dgt-dot@gov.in,jtot.wb-dgt-dot@gov.in,daca@trai.gov.in,adv.kolkata@trai.gov.in,adcafbp.cad.kolc-wb@nic.in";
 	document.getElementById("emailTo").value=to;
 
 	body_salutation="Dear Sir/Madam,";
@@ -109,7 +109,7 @@ Qos Regulation PDF: https://www.trai.gov.in/sites/default/files/2012110903212437
 	body_concat=''.concat(body_salutation,"\n\n", body_username," ",body_location,"\n\n",body_days,"\n\n",body_rest,"\n\n",body_signature);
 	document.getElementById("emailBody").value=body_concat;
 	
-	mailtoLink=''.concat("mailto:ddgtermkol-dot@nic.in,ddgvtmkol-dot@nic.in,ddgadmn.wb-dot@gov.in,diradmn.wb-dgt-dot@gov.in,dir2.cmskol-dot@gov.in,ddga.wb-dgt-dot@gov.in,jtot.wb-dgt-dot@gov.in,daca@trai.gov.in,adcafbp.cad.kolc-wb@nic.in?subject=",encodeURIComponent(subject),"&body=",encodeURIComponent(body_concat));
+	mailtoLink=''.concat("mailto:ddgtermkol-dot@nic.in,ddgvtmkol-dot@nic.in,ddgadmn.wb-dot@gov.in,diradmn.wb-dgt-dot@gov.in,dir2.cmskol-dot@gov.in,ddga.wb-dgt-dot@gov.in,jtot.wb-dgt-dot@gov.in,daca@trai.gov.in,adv.kolkata@trai.gov.in,adcafbp.cad.kolc-wb@nic.in?subject=",encodeURIComponent(subject),"&body=",encodeURIComponent(body_concat));
 	document.getElementById("mailtoLink").href=mailtoLink;
 	tweetIntent=''.concat("https://twitter.com/intent/tweet?text=@TRAI%20@DoT_India%20",encodeURIComponent(tweet));
 	document.getElementById("tweetIntent").href=tweetIntent;
