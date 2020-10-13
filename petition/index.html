@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="kube.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 <link rel="stylesheet" href="style.css" />
-<script>alert("UNDER CONSTRUCTION. SOME FEATURES WILL NOT WORK. PLEASE VISIT LATER. ETA: 7/10/2020")</script>
 </head>
 
 <body>
@@ -26,30 +25,37 @@
 			<legend>Basic Information</legend>
 			<form method="post" id="basicinfo" action="" onsubmit="return generateEmail(this.username.value.trim(),this.days1.value.trim(),this.days2.value.trim(),this.fullname.value.trim(),this.pincode.value.trim())">
 				<div class="form-item">
-					<label>Username: <span class="is-req">*</span> </label>
-					<input type="text" name="username" minlength="5" maxlength="20" autocomplete="off" required class="is-25">
+					<label>Username: <span class="is-req">*</span> <span class="is-error" id="usernameError"></span></label>
+					<!--<input type="text" name="username" minlength="5" maxlength="20" autocomplete="off" required class="is-25">-->
+					<input type="text" name="username" maxlength="20" autocomplete="off" required class="is-25">
+					<!-- removed minlength="5" because with this, the error message "Username should be more than 4 characters" is not displaying on mobile devices-->
 					<div class="is-desc">Please enter broadband username. It is an alphanumeric string that you use during login (eg: alice_bob).</div>
-					<div class="is-desc">If you don't know your username, you can find it from your previous invoices. Call the ISP helpline for more information.</div>
+					<!--<div class="is-desc">If you don't know your username, you can find it from your previous invoices. Call the ISP helpline for more information.</div>-->
 				</div>
 				<div class="form-item">
-					<label>Number of days your connectivity was interrupted after Amphan: <span class="is-req">*</span> </label>
-					<input type="number" name="days1" value="" min="4" max="90" autocomplete="off" required class="is-10">
+					<label>Number of days your connectivity was interrupted after Amphan: <span class="is-req">*</span> <span class="is-error" id="days1Error"></span></label>
+					<!--<input type="number" name="days1" value="" min="4" max="90" autocomplete="off" required class="is-10">-->
+					<input type="number" name="days1" value="" autocomplete="off" required class="is-10">
+					<!--maxlength is ignored on input type="number" by design.-->
+					<!-- removed min and max attribute because of the same reason. deafult error messages are buggy on mobile chrome. if we use min, max, the form is not submitted until the error is rectified, and the JS error is also not displayed-->
 					<div class="is-desc">Please enter only numerical vlaue (eg: 7, 10, etc.). The value should be grater than 4 or equal to 4. Because as per TRAI regulation, ISP should give rebate if the fault is not restored within 3 days.</div>
 				</div>
 				<div class="form-item">
-					<label>Number of days validity extension received: <span class="is-req">*</span> </label>
-					<input type="number" name="days2" value="0" min="0" max="30" autocomplete="off" required class="is-10">
+					<label>Number of days validity extension received: <span class="is-req">*</span> <span class="is-error" id="days2Error"></span></label>
+					<!--<input type="number" name="days2" value="0" min="0" max="30" autocomplete="off" required class="is-10">-->
+					<input type="number" name="days2" value="0" autocomplete="off" required class="is-10">
 					<div class="is-desc"> If no extension was received, please enter 0. Please enter only numerical vlaue (eg: 0, 7, etc.).</div>
 				</div>
 				<div class="form-item">
-					<label>Full Name: </label>
+					<label>Full Name: <span class="is-error" id="nameError"></span></label>
 					<input type="text" name="fullname" maxlength="40" autocomplete="off" class="is-50">
 					<div class="is-desc">Optional. Required for email signature.</div>
 				</div>
 				<div class="form-item">
-					<label>Location PIN code: </label>
-					<input type="number" name="pincode" min="700000" max="749999" autocomplete="off" class="is-20">
-					<div class="is-desc"> Optional.</div>
+					<label>Location PIN code: <span class="is-error" id="pinError"></span></label>
+					<!--<input type="number" name="pincode" min="700000" max="749999" autocomplete="off" class="is-20">-->
+					<input type="number" name="pincode" autocomplete="off" class="is-20">
+					<div class="is-desc"> Optional. We recommend to include your location in the grievance</div>
 				</div>
 				<div class="is-row">
 					<div class="form-item is-col">
@@ -65,7 +71,9 @@
 		<fieldset>
 			<legend>Generated Email</legend>
 			<p id="beforeGenerate">Please enter the required information in the form above to generate the email content.</p>
-			<p id="afterGenerate">The email has been generated. Click 'Start Over' above if you need to try again.</p>
+			<p id="afterGenerate">
+				The email has been generated. Click 'Start Over' above if you need to try again.<br/><br/>If you only send the email, you can't track the status of your complaint and it may be ignored. So, we always recommend opening a pgportal grievance. Click "How to lodge a grievance on pgportal" tab below to see a 1.5 min video to understand the procedure. You can copy-paste email body from "Manually copy-paste email texts" tab to quickly create your docket on pgportal.<br/><br/>However, if you are in a hurry, click "Send one-click email" or "Manually copy-paste email texts" tab to send the precomposed email using your configured email client. We recommed to read the email body before sending and modify it with additional information (eg: if you have any complaint number, your pgportal case number, contact, etc.).
+			</p>
 			<p id="afterGenerateWarning""></p>
 			<div id="accordion1">
 				<h3>Send one-click email</h3>
@@ -114,18 +122,23 @@
 			</div>
 			<h3>Alliance Broadband Appellate Authority Details</h3>
 			<div>
-				As of 06/09/2020, ABSPL website has no information about the appellate authority, advisory committee. There is also no consumer charter, all of these are violations of TRAI regulation. However, I did an RTI and received the appellate authority details. The full RTI response from the TRAI can be found <a href="https://drive.google.com/file/d/1B_VZusFiZVbY3YLyubLQl4ryCDrYsoYX/view?usp=sharing" target="_blank">here</a>.
+				As of 10/10/2020, ABSPL website has no information about the appellate authority, advisory committee. There is also no consumer charter, all of these are violations of TRAI regulation. However, I did an RTI and received the appellate authority details. The full RTI response from the TRAI can be found <a href="https://drive.google.com/file/d/1B_VZusFiZVbY3YLyubLQl4ryCDrYsoYX/view?usp=sharing" target="_blank">here</a>.
 				<br/><br/>
 				Kaushik Ghosh: kaushik@alliancebroadband.co.in<br/>
 				Kapil Sonowal: kapil@alliancebroadband.co.in<br/>
 				Arunabha Bnaerjee: arunabha@alliancebroadband.co.in<br/>
 				Abhijit Modak: abhijitm@alliancebroadband.co.in
 			</div>
+		</div>
+		<br/>
+		<div id="accordion3">
 			<h3>Contact</h3>
 			<div>
 				<p>
-				Please feel free to email me if you have any questions, suggestions, or need any further information:<br/><span id="email_user"></span>@<span id="email_domain"></span><br/>
-				<form><div class="is-desc">If this has helped you, please consider donating some small amount, because it will encourage me to build similar things in future. My UPI ID is: mrghosh@upi</div></form>
+				Please feel free to email me if you have any questions, suggestions, or need any further information: <span id="email_user"></span>@<span id="email_domain"></span>
+				<br/><br/>If you didn't get the validity extension, you should share this with other users under your zone/LCO. <a href="" onClick="copyShareMessage(event);" >Click here</a> to copy the following message. <span id="copied"></span>
+				<div id="share">Did you get Internet package validity extension for Amphan? If not, maybe lodge a grievance on pgportal against Alliance Broadband. It will only take few minutes. Please visit https://ghosh.email/petition</div>
+				<br/><form><div class="is-desc">If this has helped you, please consider donating some small amount, because it will encourage me to build similar things in future. My UPI ID is: mrghosh@upi</div></form>
 				</p>
 			</div>
 		</div>
