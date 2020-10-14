@@ -70,7 +70,7 @@ ${fullname}`;
 		body_days=`After the Cyclone Amphan on 20th May, my internet connectivity was lost, and it was restored after ${days1} days, but I have only received a validity extension for ${days2} days. According to the TRAI Quality of Service of Broadband Service Regulations 2006 (11 of 2006), in all cases where the fault is not rectified within three working days, the rebate shall be given as per the provisions in section 3(ii) of the regulation. Even after the restoration, there were huge packet loss and bandwidth problems, which continued for the next few weeks.`
 		tweetRest=`After Cyclone Amphan, my connectivity fault was repaired after ${days1}days, but I received validity extension for ${days2}days. Plz direct ISP for rebate as per QoS regulation (11 of 2006)`;
 	}else{
-		document.getElementById("dialogText").innerHTML=`As per the information you have entered above, your connection was restored after ${days1} days, and you have received validity extension of ${days2} days. You don't need to take any more action. Thus, no email was generated. Please recheck the days in the form, or contact us if you think this is an error.`;
+		document.getElementById("dialogText").innerHTML=`As per the information you have entered above, your connection was restored after ${days1} days, and you have received a validity extension of ${days2} days. You don't need to take any more action. Thus, no email was generated. Please recheck the days in the form, or contact us if you think this is an error.`;
 		$("#dialog").dialog("option","title","Error!").dialog("open");
 		return false;
 	}
@@ -97,7 +97,7 @@ ${fullname}`;
 	
 	subject=`[${username}] Complaint against Alliance Broadband Services (P) Ltd`;
 	document.getElementById("emailSubject").value=subject;
-	to="ddgtermkol-dot@nic.in,ddgvtmkol-dot@nic.in,ddgadmn.wb-dot@gov.in,diradmn.wb-dgt-dot@gov.in,dir2.cmskol-dot@gov.in,ddga.wb-dgt-dot@gov.in,jtot.wb-dgt-dot@gov.in,daca@trai.gov.in,adv.kolkata@trai.gov.in,adcafbp.cad.kolc-wb@nic.in";
+	to="ddgtermkol-dot@nic.in,ddgvtmkol-dot@nic.in,ddgadmn.wb-dot@gov.in,diradmn.wb-dgt-dot@gov.in,dir2.cmskol-dot@gov.in,ddga.wb-dgt-dot@gov.in,jtot.wb-dgt-dot@gov.in,daca@trai.gov.in,adv.kolkata@trai.gov.in,sourav@uohyd.ac.in,adcafbp.cad.kolc-wb@nic.in";
 	document.getElementById("emailTo").value=to;
 
 	body_salutation="Dear Sir/Madam,";
@@ -109,7 +109,7 @@ Qos Regulation PDF: https://www.trai.gov.in/sites/default/files/2012110903212437
 	body_concat=''.concat(body_salutation,"\n\n", body_username," ",body_location,"\n\n",body_days,"\n\n",body_rest,"\n\n",body_signature);
 	document.getElementById("emailBody").value=body_concat;
 	
-	mailtoLink=''.concat("mailto:ddgtermkol-dot@nic.in,ddgvtmkol-dot@nic.in,ddgadmn.wb-dot@gov.in,diradmn.wb-dgt-dot@gov.in,dir2.cmskol-dot@gov.in,ddga.wb-dgt-dot@gov.in,jtot.wb-dgt-dot@gov.in,daca@trai.gov.in,adv.kolkata@trai.gov.in,adcafbp.cad.kolc-wb@nic.in?subject=",encodeURIComponent(subject),"&body=",encodeURIComponent(body_concat));
+	mailtoLink=''.concat("mailto:ddgtermkol-dot@nic.in,ddgvtmkol-dot@nic.in,ddgadmn.wb-dot@gov.in,diradmn.wb-dgt-dot@gov.in,dir2.cmskol-dot@gov.in,ddga.wb-dgt-dot@gov.in,jtot.wb-dgt-dot@gov.in,daca@trai.gov.in,adv.kolkata@trai.gov.in,sourav@uohyd.ac.in,adcafbp.cad.kolc-wb@nic.in?subject=",encodeURIComponent(subject),"&body=",encodeURIComponent(body_concat));
 	document.getElementById("mailtoLink").href=mailtoLink;
 	tweetIntent=''.concat("https://twitter.com/intent/tweet?text=@TRAI%20@DoT_India%20",encodeURIComponent(tweet));
 	document.getElementById("tweetIntent").href=tweetIntent;

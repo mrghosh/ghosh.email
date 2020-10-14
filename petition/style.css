@@ -60,6 +60,8 @@ footer{
 
 #afterGenerate{
 	display: none;
+}
+#afterGenerateSuccess{
 	color:#35beb1;
 }
 #afterGenerateWarning{
